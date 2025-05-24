@@ -97,17 +97,41 @@
     // Allows one to be in several types (|) (string | number)
     //combine them use intersection (&) (string & number)
 
-    type Category = "work" | "personl" | "urgent";
-    interface Task{
-        title:string;
-        category: Category
-    }
-    interface Auditable{
-        createdAt:Date;
-    }
+            // type Category = "work" | "personl" | "urgent";
+            // interface Task{
+            //     title:string;
+            //     category: Category
+            // }
+            // interface Auditable{
+            //     createdAt:Date;
+            // }
 
-    type AuditableTask  = Task & Auditable
+            // type AuditableTask  = Task & Auditable
 
-    const task: AuditableTask = 
-        {title: "Write a report", category: "work", createdAt:new Date()}
-        
+            // const task: AuditableTask = 
+            //     {title: "Write a report", category: "work", createdAt:new Date()}
+
+            // EXERCISE
+            //Create a union type TaskId as string | number.
+            // Create an intersection type combining Task and User.
+            // Write a function accepting a TaskId and returning a task.
+
+            // type Category =  "string" | "number";
+
+            // interface User{
+            //     name: string;
+            //     userId:number | string
+            //     category: Category
+
+            // }
+            // interface Task{
+            //     typeTask:string;
+            //     taskId:string | number
+            // }
+            // type UserTask = Task & User
+
+            // const taskAssigned : UserTask  = {typeTask: "coding", taskId:123,name:"john", userId:2345, category: "number" }
+            // console.log(taskAssigned);
+            
+            
+                    
