@@ -74,10 +74,20 @@
 
         //function to filter  Method
         const pendingTask = tasks.filter(task=>task.status === Status.Pending)
+
+        const completedTask = tasks.filter(task=>task.status===Status.completed)
+        const progressTask = tasks.filter(task=>task.status===Status.InProgress)
                //filter method in ts
                // create a new element then you assgn it to the array.filter
                //const pending = tasks(array).filter(task=> task.status === Status.pending)
             
+        console.log(completedTask);
+        console.log('====================================');
+        console.log('====================================');
         console.log(pendingTask);
+        console.log('====================================');
+        console.log('====================================');
+        console.log(progressTask);
+        console.log('====================================');
         
 
