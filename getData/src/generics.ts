@@ -20,4 +20,10 @@ console.log(completedTasks);
 // Write a generic function getFirst<T> that returns the first item of an array.
 // Test it with Task[] and string[].
 
-function getFirst<T, K extends keyof T>{}
+function getFirstNumber(array: number []){
+    return array[0]
+}
+
+const numbers =  [1,2,3,7,90,345,6,8,9]
+const firstnumber = getFirstNumber(numbers)
+console.log(firstnumber);
