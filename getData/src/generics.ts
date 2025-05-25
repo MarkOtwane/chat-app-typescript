@@ -14,3 +14,10 @@ const tasksA: TaskC[] = [
 ];
 const completedTasks = filterByProperty(tasksA, "completed", true)
 console.log(completedTasks);
+
+
+// // EXERCISE
+// Write a generic function getFirst<T> that returns the first item of an array.
+// Test it with Task[] and string[].
+
+function getFirst<T, K extends keyof T>{}
