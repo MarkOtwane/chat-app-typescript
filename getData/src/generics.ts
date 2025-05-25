@@ -38,3 +38,17 @@ const number12 = [1,2,3,4,5,6,7]
 const firstNumber23 = getNumber(number12)
 
 const strings = ["cwknve","cnevnoevne", "vevrnri"]
+
+type ApiResponse<Data = {status: number}> = {
+    data: Data;
+    isError: boolean
+}
+
+const response: ApiResponse<{name:string}> = {
+    data: {
+        name:"sdf"
+    },
+    isError:false
+}
+
+// extends is used to refer to objects 

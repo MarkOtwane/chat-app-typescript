@@ -25,3 +25,10 @@ function getNumber(array) {
 const number12 = [1, 2, 3, 4, 5, 6, 7];
 const firstNumber23 = getNumber(number12);
 const strings = ["cwknve", "cnevnoevne", "vevrnri"];
+const response = {
+    data: {
+        name: "sdf"
+    },
+    isError: false
+};
+// extends is used to refer to objects 
