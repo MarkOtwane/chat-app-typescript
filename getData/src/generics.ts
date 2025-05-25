@@ -52,3 +52,13 @@ const response: ApiResponse<{name:string}> = {
 }
 
 // extends is used to refer to objects 
+
+function  convertToArray<T>(input: T): T[]{  //specify a relationship btn the array linke input[] is the array parameter and the return value
+    return [input];
+}
+
+convertToArray({
+    name:"mark",
+    age:22,
+    isAdmin: false
+})

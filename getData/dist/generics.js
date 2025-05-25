@@ -32,3 +32,11 @@ const response = {
     isError: false
 };
 // extends is used to refer to objects 
+function convertToArray(input) {
+    return [input];
+}
+convertToArray({
+    name: "mark",
+    age: 22,
+    isAdmin: false
+});
