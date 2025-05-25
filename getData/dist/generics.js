@@ -40,3 +40,6 @@ convertToArray({
     age: 22,
     isAdmin: false
 });
+function createArrayPair(input1, input2) {
+    return [input1, input2]; //we have specified relationship btn input and the return type
+}

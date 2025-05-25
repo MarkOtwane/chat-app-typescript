@@ -62,3 +62,7 @@ convertToArray({
     age:22,
     isAdmin: false
 })
+
+function createArrayPair<T, K>(input1: T, input2: K): [T, K]{
+    return [input1, input2]; //we have specified relationship btn input and the return type
+}
