@@ -1,13 +1,14 @@
-// Shorthand Property Initialization 
-class Book{
-    constructor(public title:string, public author: string){}
-    getDetails(): string{
-        return `${this.title} by ${this.author}`
+// shorthand  in constructor, where parameters with access modifier of public automatically become class propertiess reducing the nedd of the this keey word 
+// Create a User class with shorthand properties name and email.
+// Add a getProfile method returning a formatted string.
+
+class User{
+    constructor(public name:string, public email:string){}
+
+    getProfile(): string{
+        return `${this.name} your email is ${this.email}`
     }
 }
 
-const book: Book = new Book("1998", "King David")
-console.log(book.getDetails());
-
-
-// shorthand  in constructor, where parameters with access modifier of public automatically become class propertiess reducing the nedd of the this keey word 
+const user: User  = new User("Mark", "mark@gmail.com")
+console.log(user.getProfile());
