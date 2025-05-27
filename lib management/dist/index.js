@@ -1,17 +1,16 @@
 "use strict";
-class Book {
-    // constructor
-    constructor(title, isAvailable) {
-        this.title = title;
-        this.isAvailable = isAvailable;
+// Create a User class with name (string) and id (number) properties, and a greet method.
+// Instantiate two users and call greet on each.
+class User {
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
     }
-    borrow() {
-        if (this.isAvailable) {
-            this.isAvailable = true;
-            return `${this.title} borrowed successfully`;
-        }
-        return `${this.title} is not available`;
+    greet() {
+        return `${this.name} how are you`;
     }
 }
-const book = new Book("Mark", true);
-console.log(book.borrow());
+const user1 = new User("Mark", 123345);
+const use21 = new User("Joe", 123345);
+console.log(user1.greet());
+console.log(use21.greet());

@@ -1,23 +1,21 @@
-class Book {
-    title: string;
-    isAvailable: boolean;
+// Create a User class with name (string) and id (number) properties, and a greet method.
+// Instantiate two users and call greet on each.
 
-    // constructor
-    constructor(title: string, isAvailable: boolean){
-        this.title =title;
-        this.isAvailable = isAvailable
-    }
-
-    borrow(): string{
-        if(this.isAvailable){
-            this.isAvailable = true;
-            return `${this.title} borrowed successfully`
-        }
-        return `${this.title} is not available`
-    }
+class User{
+    name:string;
+    id:number;
+     constructor(name:string, id:number){
+        this.name = name;
+        this.id = id
+     }
+     greet(): string{
+        return `${this.name} how are you`
+     }
 }
 
-const book: Book = new Book("Mark", true)
-console.log(book.borrow());
+const user1 = new User("Mark", 123345);
+const use21 = new User("Joe", 123345);
 
+console.log(user1.greet())
+console.log(use21.greet())
 
