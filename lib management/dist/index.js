@@ -1,15 +1,25 @@
 "use strict";
-// shorthand  in constructor, where parameters with access modifier of public automatically become class propertiess reducing the nedd of the this keey word 
-// Create a User class with shorthand properties name and email.
-// Add a getProfile method returning a formatted string.
+// Access Modifiers
+// public : everywhere accessible 
+// private: accessible only within a class 
+// protected: accessible within a class and a subclasses 
 class User {
-    constructor(name, email) {
+    constructor(name, password) {
         this.name = name;
-        this.email = email;
+        this.borrowedBooks = [];
+        this.password = password;
     }
-    getProfile() {
-        return `${this.name} your email is ${this.email}`;
+    borrowBook(book) {
+        this.borrowedBooks.push(book);
     }
 }
-const user = new User("Mark", "mark@gmail.com");
-console.log(user.getProfile());
+class Librarian extends User {
+    manageBooks() {
+        return this.borrowedBooks; //accessible due to protected
+    }
+}
+const user = new User("Joy", "mburu");
+// console.log(user.password); error password is accessible only within a class
+const librarian = new Librarian("Joe", "Admin");
+librarian.borrowBook("Atomic Habits");
+console.log(librarian.manageBooks());
