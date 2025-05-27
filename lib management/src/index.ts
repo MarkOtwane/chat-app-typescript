@@ -1,21 +1,13 @@
-// Create a User class with name (string) and id (number) properties, and a greet method.
-// Instantiate two users and call greet on each.
-
-class User{
-    name:string;
-    id:number;
-     constructor(name:string, id:number){
-        this.name = name;
-        this.id = id
-     }
-     greet(): string{
-        return `${this.name} how are you`
-     }
+// Shorthand Property Initialization 
+class Book{
+    constructor(public title:string, public author: string){}
+    getDetails(): string{
+        return `${this.title} by ${this.author}`
+    }
 }
 
-const user1 = new User("Mark", 123345);
-const use21 = new User("Joe", 123345);
+const book: Book = new Book("1998", "King David")
+console.log(book.getDetails());
 
-console.log(user1.greet())
-console.log(use21.greet())
 
+// shorthand  in constructor, where parameters with access modifier of public automatically become class propertiess reducing the nedd of the this keey word 
