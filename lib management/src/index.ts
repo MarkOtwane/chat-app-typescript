@@ -19,3 +19,5 @@ class Book {
 
 const book: Book = new Book("Mark", true)
 console.log(book.borrow());
+
+
