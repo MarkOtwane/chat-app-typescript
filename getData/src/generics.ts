@@ -66,3 +66,7 @@ convertToArray({
 function createArrayPair<T, K>(input1: T, input2: K): [T, K]{
     return [input1, input2]; //we have specified relationship btn input and the return type
 }
+
+function getFirst<T>(inputa: T, inputb: K): Task[] & string[]{
+ return [inputa, inputb]
+}
