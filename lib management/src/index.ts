@@ -1,28 +1,24 @@
-// Access Modifiers
-// public : everywhere accessible 
-// private: accessible only within a class 
-// protected: accessible within a class and a subclasses 
+// Create a Book class with private isbn and protected status.
+// Create a DigitalBook subclass accessing status.
+// Try accessing isbn outside the class and observe the error. |
+type Status = "low" | "medium" | "high";
 
-class User{
-    private password: string;
-    protected borrowedBooks: string[] = [];
+class Book{
+    private isbn: string;
+    protected status : Status;
+    constructor(public name: string, isbn: string, status: Status){
+        this.isbn = isbn;
+        this.status = status;
+    }
 
-    constructor(public name:string, password:string){
-        this.password = password;
-    }
-    borrowBook(book: string): void{
-        this.borrowedBooks.push(book)
-    }
 }
 
-class Librarian extends User{
-    manageBooks(): string[]{
-        return this.borrowedBooks//accessible due to protected
-    }
+class DigitalBook extends Book{
+    borrowBooks(): string{
+        return `${this.status}`
+    } 
 }
 
-const user = new User("Joy", "mburu");
-// console.log(user.password); error password is accessible only within a class
-const librarian = new Librarian("Joe", "Admin");
-librarian.borrowBook("Atomic Habits");
-console.log(librarian.manageBooks());
+const book = new Book("Power", "1234", "medium");
+const digitalBook = new DigitalBook("Po", "qwer", "low")
+console.log(digitalBook.borrowBooks());

@@ -1,25 +1,16 @@
 "use strict";
-// Access Modifiers
-// public : everywhere accessible 
-// private: accessible only within a class 
-// protected: accessible within a class and a subclasses 
-class User {
-    constructor(name, password) {
+class Book {
+    constructor(name, isbn, status) {
         this.name = name;
-        this.borrowedBooks = [];
-        this.password = password;
-    }
-    borrowBook(book) {
-        this.borrowedBooks.push(book);
+        this.isbn = isbn;
+        this.status = status;
     }
 }
-class Librarian extends User {
-    manageBooks() {
-        return this.borrowedBooks; //accessible due to protected
+class DigitalBook extends Book {
+    borrowBooks() {
+        return `${this.status}`;
     }
 }
-const user = new User("Joy", "mburu");
-// console.log(user.password); error password is accessible only within a class
-const librarian = new Librarian("Joe", "Admin");
-librarian.borrowBook("Atomic Habits");
-console.log(librarian.manageBooks());
+const book = new Book("Power", "1234", "medium");
+const digitalBook = new DigitalBook("Po", "qwer", "low");
+console.log(digitalBook.borrowBooks());
