@@ -1,21 +1,12 @@
 "use strict";
-// INHERITANCE 
-Object.defineProperty(exports, "__esModule", { value: true });
-// idea of inhering properties from a super class using extend keyword
-class User {
-    constructor(name) {
+class Siblings {
+    constructor(name, name2) {
         this.name = name;
+        this.name2 = name2;
     }
-    greet() {
-        return `Hello ${this.name} welcome`;
-    }
-}
-class Librarian extends User {
-    constructor(name, department) {
-        super(name); //calls the parent construct
-        this.department = department;
+    family() {
+        return `${this.name} and ${this.name2} are siblings`;
     }
 }
-const librarian = new Librarian("Joe", "ICT");
-console.log(librarian.greet());
-console.log(librarian.department);
+const users = new Siblings("Mark", "Karen");
+console.log(users.family());
