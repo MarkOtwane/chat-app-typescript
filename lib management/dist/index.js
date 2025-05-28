@@ -1,12 +1,19 @@
 "use strict";
-class Siblings {
-    constructor(name, name2) {
-        this.name = name;
-        this.name2 = name2;
+// Create a Book class with title and borrow method.
+// Create an EBook class that inherits Book, adding fileSize.
+// Test borrow on an EBook instance.
+class Book {
+    constructor(title) {
+        this.title = title;
     }
-    family() {
-        return `${this.name} and ${this.name2} are siblings`;
+    borrowBook(author) {
+        return `${this.title} is written by ${author}`;
     }
 }
-const users = new Siblings("Mark", "Karen");
-console.log(users.family());
+class Ebook extends Book {
+    addFiles() {
+        return `add the file of this book ${this.title} which is written by ${this.borrowBook("Jame")}`;
+    }
+}
+const lib = new Ebook("Atomic Habits");
+console.log(lib.addFiles());

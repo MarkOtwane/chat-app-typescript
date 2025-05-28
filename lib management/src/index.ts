@@ -1,9 +1,18 @@
-class Siblings{
-constructor(public name: string, public name2: string){}
- family():string{
-  return `${this.name} and ${this.name2} are siblings`
+// Create a Book class with title and borrow method.
+// Create an EBook class that inherits Book, adding fileSize.
+// Test borrow on an EBook instance.
+
+class Book{
+    constructor(public title:string){}
+    borrowBook(author: string):string{
+        return `${this.title} is written by ${author}`
+    }
 }
+class Ebook extends Book{
+    addFiles(): string{
+        return `add the file of this book ${this.title} which is written by ${this.borrowBook("Jame")}`
+    }
 }
 
-const users = new Siblings("Mark", "Karen");
-console.log(users.family())
+const lib = new Ebook("Atomic Habits");
+console.log(lib.addFiles());
