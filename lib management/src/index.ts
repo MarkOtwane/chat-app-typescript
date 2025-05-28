@@ -1,24 +1,22 @@
-// Create a Book class with private isbn and protected status.
-// Create a DigitalBook subclass accessing status.
-// Try accessing isbn outside the class and observe the error. |
-type Status = "low" | "medium" | "high";
+// INHERITANCE 
 
-class Book{
-    private isbn: string;
-    protected status : Status;
-    constructor(public name: string, isbn: string, status: Status){
-        this.isbn = isbn;
-        this.status = status;
+import { log } from "console";
+
+// idea of inhering properties from a super class using extend keyword
+class User{
+    constructor(public name: string){}
+    greet(): string{
+        return `Hello ${this.name} welcome`
     }
-
 }
 
-class DigitalBook extends Book{
-    borrowBooks(): string{
-        return `${this.status}`
-    } 
+class Librarian extends User{
+    constructor(name:string, public department:string){
+        super(name) //calls the parent construct
+    }
 }
 
-const book = new Book("Power", "1234", "medium");
-const digitalBook = new DigitalBook("Po", "qwer", "low")
-console.log(digitalBook.borrowBooks());
+const librarian = new Librarian("Joe", "ICT")
+console.log(librarian.greet());
+console.log(librarian.department);
+
