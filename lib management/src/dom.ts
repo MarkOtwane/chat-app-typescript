@@ -1,38 +1,56 @@
-interface Users{
-    firstName : string,
+interface Users {
+    firstName: string,
     lastName: string,
     email: string,
     task: string,
     age: number,
-    time: Date
-
+    // time: Date
 }
-// dom elements 
-const form = document.getElementById('form')!
-const display = document.getElementById('display')!
 
-// create an array 
-let items: string[] | number[] | boolean = []
+// DOM elements 
+const form = document.getElementById('form') as HTMLFormElement;
+const display = document.getElementById('display') as HTMLUListElement;
+const addButton = document.getElementById('btn') as HTMLButtonElement;
 
-form.addEventListener('submit', (e)=>{
-    e.preventDefault();
+// Create an array 
+let items: Users[] = JSON.parse(localStorage.getItem('data') || '[]');
 
+// Clear and render existing users on load
+display.innerHTML = "";
+items.forEach((element: Users) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${element.firstName} ${element.lastName} ${element.email} ${element.task} ${element.age}`;
+    display.appendChild(listItem);
+});
+
+function addUsers() {
     const firstName = (document.getElementById('userInput') as HTMLInputElement).value.trim();
     const lastName = (document.getElementById('userInput2') as HTMLInputElement).value.trim();
     const email = (document.getElementById('email') as HTMLInputElement).value.trim();
-    const task =  (document.getElementById('task') as HTMLInputElement).value.trim();
-    const age =  (document.getElementById('age') as HTMLInputElement).value.trim();
-    const  time = (document.getElementById('time') as HTMLInputElement).value.trim();
+    const task = (document.getElementById('task') as HTMLInputElement).value.trim();
+    const age = Number((document.getElementById('age') as HTMLInputElement).value.trim());
 
-    const users: Users[] = [{
-        users.firstName = firstName,
-        users.lastName =  lastName,
-        users.email = email,
-        users.task = task,
-        users.age = age,
-        users.time = time
+    const users: Users = {
+        firstName,
+        lastName,
+        email,
+        task,
+        age,
+        // time
+    };
 
-    }];
+    items.push(users);
+    localStorage.setItem('data', JSON.stringify(items));
 
-    form.reset()
+    const listItem = document.createElement('li');
+    listItem.textContent = `${users.firstName} ${users.lastName} ${users.email} ${users.task} ${users.age}`;
+    display.appendChild(listItem);
+
+    form.reset();
+}
+
+// Add button
+addButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent form from submitting
+    addUsers();
 });
