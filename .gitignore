@@ -1,0 +1,45 @@
+✅ Assignment 1: Dynamic Task List with DOM
+Objective: Learn to work with arrays and manipulate the DOM using TypeScript.
+Instructions:
+Create an HTML file with:
+A text input field.
+An "Add Task" button.
+An empty <ul> or <div> to display the tasks.
+In your TypeScript file:
+Capture the value from the input when the button is clicked.
+Push the value to an array of strings.
+Update the display to show all tasks in the array (each task as a separate element).
+Clear the input after adding.
+
+✅ Assignment 2: Filter Names Starting With "J"
+Objective: Practice using the filter() method and conditional rendering.
+Instructions:
+Use this predefined array:
+const list: string[] = ["Mark", "Jone", "Joe", "Job", "Steve"];
+Use the .filter() method to extract all names starting with "J".
+Display the filtered list on the webpage under a heading like "Names Starting With J".
+
+✅ Assignment 3: Find a User by Name
+Objective: Use .find() to search an array of objects defined with an interface.
+Instructions:
+Create this user interface and sample data:
+interface USer {
+id: number;
+name: string;
+age: number;
+}
+const users: USer[] = [
+{id: 1, name: 'Alice', age: 21},
+{id: 2, name: 'Joy', age: 20},
+{id: 3, name: 'Sharon', age: 19}
+];
+Add a text input and a "Search User" button to your HTML.
+When the button is clicked:
+Get the input value (user name).
+Use .find() to search for a matching user by name.
+Display the user's name and age if found.
+If not found, display "User not found".
+Expected Output (if input is "Joy"):
+User Found: Joy, Age: 20
+
+
