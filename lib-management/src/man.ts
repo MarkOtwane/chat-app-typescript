@@ -10,7 +10,7 @@ interface Details{
  const emailInput = document.getElementById('email')as HTMLInputElement;
  const phoneInput = document.getElementById('phone')as HTMLInputElement;
  const addBtn = document.getElementById('add')as HTMLButtonElement;
- const displayData = document.getElementById('dataDisplay')as HTMLDivElement;
+//  const displayData = document.getElementById('dataDisplay')as HTMLDivElement;
 
  let details : Details[] = JSON.parse(localStorage.getItem('details')|| '[]')
  // access local storage
@@ -30,7 +30,7 @@ interface Details{
      }
 
      //check for email and phone deplicate using some() method check if sum items in the array
-     if (details.some(item =>item.email === newDetails.email && item.phone === newDetails.phone)){
+     if (details.some(item =>item.email === newDetails.email || item.phone === newDetails.phone)){
         alert('No duplicates for email and phone')
         return
     }
@@ -45,15 +45,37 @@ interface Details{
  //function to display data
 
  const displayDataDom = ()=>{
-     displayData.innerHTML = ''
-      //loop through the array 
-     details.forEach((detail)=>{
-         const li = document.createElement('li');
-         li.textContent = `${detail.name} ${detail.email} ${detail.phone}`
+    const  tableBody = document.querySelector('tbody')!;
+    tableBody.innerHTML = ''
 
-         displayData.appendChild(li)
+    details.forEach((item, index)=>{
+        const tableRow =  document.createElement('tr');
+        tableRow.innerHTML = `
+         <td>${index + 1}</td>
+        <td class="dataI">${item.name}</td>
+        <td class="dataI">${item.email}</td>
+        <td class="dataI">${item.phone}</td>
+        <td class="dataI"><button class="editBtn">Edit</button></td>
+        <td class="dataI"><button class="deleteBtn" data-index="${index}">Delete</button></td>
+        `
 
-     })
+
+        const deleteButton = tableRow.querySelector('.deleteBtn') as HTMLButtonElement;
+        deleteButton.addEventListener('click', () => {
+            deleteData(index);
+        });
+
+        tableBody.appendChild(tableRow);
+
+    });
+    
+ }
+
+ // delete function
+ const deleteData = (index:number)=>{
+    details.splice(index, 1);
+    localStorage.setItem('details', JSON.stringify(details)); // update storage
+    displayDataDom(); 
  }
 
 
