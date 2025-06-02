@@ -13,7 +13,7 @@ const display = document.getElementById('display') as HTMLUListElement;
 const addButton = document.getElementById('btn') as HTMLButtonElement;
 
 // Create an array 
-let items: Users[] = JSON.parse(localStorage.getItem('data') || '[]');
+let items: Users[] = [] //JSON.parse(localStorage.getItem('data') || '[]');
 
 // Clear and render existing users on load
 display.innerHTML = "";
