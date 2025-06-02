@@ -1,10 +1,9 @@
 "use strict";
 // DOM elements 
-const form = document.getElementById('form');
 const display = document.getElementById('display');
 const addButton = document.getElementById('btn');
 // Create an array 
-let items = JSON.parse(localStorage.getItem('data') || '[]');
+let items = []; //JSON.parse(localStorage.getItem('data') || '[]');
 // Clear and render existing users on load
 display.innerHTML = "";
 items.forEach((element) => {
@@ -31,7 +30,6 @@ function addUsers() {
     const listItem = document.createElement('li');
     listItem.textContent = `${users.firstName} ${users.lastName} ${users.email} ${users.task} ${users.age}`;
     display.appendChild(listItem);
-    form.reset();
 }
 // Add button
 addButton.addEventListener('click', (e) => {

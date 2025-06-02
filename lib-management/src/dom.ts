@@ -8,7 +8,6 @@ interface Users {
 }
 
 // DOM elements 
-const form = document.getElementById('form') as HTMLFormElement;
 const display = document.getElementById('display') as HTMLUListElement;
 const addButton = document.getElementById('btn') as HTMLButtonElement;
 
@@ -45,8 +44,6 @@ function addUsers() {
     const listItem = document.createElement('li');
     listItem.textContent = `${users.firstName} ${users.lastName} ${users.email} ${users.task} ${users.age}`;
     display.appendChild(listItem);
-
-    form.reset();
 }
 
 // Add button
