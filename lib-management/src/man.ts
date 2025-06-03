@@ -12,8 +12,10 @@ interface Details{
  const addBtn = document.getElementById('add')as HTMLButtonElement;
 //  const displayData = document.getElementById('dataDisplay')as HTMLDivElement;
 
- let details : Details[] = JSON.parse(localStorage.getItem('details')|| '[]');
+
+
  let editIndex: number | null = null; //helps us to track whether we are editing or adding a new value
+ let details : Details[] = JSON.parse(localStorage.getItem('details')|| '[]'); //run this to clear localStorage which had a corrupt file
 
  // access local storage
 
@@ -36,13 +38,6 @@ interface Details{
             alert('No duplicated allowed for email or phone.');
             return;
         }
-     
-
-     //check for email and phone deplicate using some() method check if sum items in the array
-    //  if (details.some(item =>item.email === newDetails.email || item.phone === newDetails.phone)){
-    //     alert('No duplicates for email and phone')
-    //     return
-    // }
 
     // push to array of data
      details.push(newDetails);
@@ -77,9 +72,7 @@ interface Details{
 
 
         const deleteButton = tableRow.querySelector('.deleteBtn') as HTMLButtonElement;
-        deleteButton.addEventListener('click', () => {
-            deleteData(index);
-        });
+        deleteButton.addEventListener('click', () => {deleteData(index)});
 
         tableBody.appendChild(tableRow);
 
@@ -117,5 +110,4 @@ interface Details{
 
 // button add Event
  addBtn.addEventListener('click', addDetails);
-// window.onload = 
 displayDataDom();
